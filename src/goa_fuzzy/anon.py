@@ -24,7 +24,24 @@ def select_dataset():
     choice = input("\nEscolha o dataset: ").lower()
     selected = DatasetOptions(choice)
     config = dataset_config[selected]
-    df = pd.read_csv(config.path)
+    if selected == DatasetOptions.IOT_MEDICAL:
+      
+        file1 = 'data/Attack.csv'
+        file2 = 'data/environmentMonitoring.csv'
+        file3 = 'data/patientMonitoring.csv'
+        # Carrega os datasets
+        df1 = pd.read_csv(file1)
+        df2 = pd.read_csv(file2)
+        df3 = pd.read_csv(file3)
+        
+        # Garante que todos os datasets tenham as mesmas colunas
+        all_columns = set(df1.columns) | set(df2.columns) | set(df3.columns)
+        df1 = df1.reindex(columns=all_columns, fill_value=None)
+        df2 = df2.reindex(columns=all_columns, fill_value=None)
+        df3 = df3.reindex(columns=all_columns, fill_value=None)
+        df = pd.concat([pd.read_csv(file1), pd.read_csv(file2), pd.read_csv(file3)], ignore_index=True)
+    else:
+        df = pd.read_csv(config.path)
 
     print("\nDataset:", selected.value)
     print("QIs:", config.qi)
