@@ -1,7 +1,7 @@
 import os
 
 import pandas as pd
-from config.config_data import AdultsConfig
+from config.config_data import AdultsConfig, IotMedicalConfig
 from config.constants import DatasetOptions
 
 from goa_fuzzy import goa_fuzzy
@@ -9,11 +9,9 @@ from metrics import calculate_metrics
 
 dataset_config = {
     DatasetOptions.ADULTS: AdultsConfig,
-    # DatasetOptions.ATTACK: AdultsConfig,  # Temporário
-    # DatasetOptions.DATA1: AdultsConfig,   # Temporário
-    # DatasetOptions.DATA2: AdultsConfig    # Temporário
+    DatasetOptions.IOT_MEDICAL: IotMedicalConfig
 }
-CONST_K = 3
+
 
 
 def select_dataset():

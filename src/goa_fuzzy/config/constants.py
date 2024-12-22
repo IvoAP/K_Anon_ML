@@ -3,8 +3,6 @@ from enum import Enum
 
 class DatasetOptions(Enum):
     ADULTS = 'adults'
-    CMC = 'cmc'
-    CAHOUSING = 'cahousing'
-    MGM = 'mgm'
+    IOT_MEDICAL = 'iot_medical'
 
     

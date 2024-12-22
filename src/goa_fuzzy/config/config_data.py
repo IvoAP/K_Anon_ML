@@ -3,5 +3,13 @@ class AdultsConfig:
     target = 'income'
     path = 'data/adults.csv'
 
-# class CmcConfig:
-#     qi = []
+class  IotMedicalConfig:
+    qi = [
+    'ip.src', 'ip.dst',         
+    'tcp.srcport', 'tcp.dstport',  
+    'frame.time_relative', 'frame.len',  
+    'mqtt.topic', 'mqtt.topic_len',  
+    ]
+    
+    target = 'label'
+
